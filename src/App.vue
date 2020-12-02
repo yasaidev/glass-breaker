@@ -1,17 +1,19 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">ホーム</router-link> |
-      <router-link to="/usage">使い方</router-link> |
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://twitter.com/yasaidev"
-        >製作者</a
-      >
+  <v-app>
+    <div id="app">
+      <div id="nav">
+        <router-link to="/">ホーム</router-link> |
+        <router-link to="/usage">使い方</router-link> |
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://twitter.com/yasaidev"
+          >製作者</a
+        >
+      </div>
+      <router-view />
     </div>
-    <router-view />
-  </div>
+  </v-app>
 </template>
 
 <style>
@@ -33,6 +35,6 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #01579b;
 }
 </style>

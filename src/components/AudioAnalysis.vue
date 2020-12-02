@@ -3,14 +3,22 @@
     <h1>{{ state_msg[state_id] }}</h1>
     <h2 v-if="state_id === 3">{{ Freq }} Hz</h2>
     <div id="canvas" ref="p5canvas"></div>
-    <div class="button_parent">
-      <div class="button_child">
-        <button ref="analysis_button">Analysis</button>
-      </div>
-      <div class="button_child">
-        <button ref="play_button" v-bind:disabled="state_id !== 3">Play</button>
-      </div>
-    </div>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <v-btn large ref="analysis_button">Analysis🔎</v-btn>
+        </v-col>
+        <v-col cols="12">
+          <v-btn
+            color="amber"
+            large
+            ref="play_button"
+            v-bind:disabled="state_id !== 3"
+            >{{ isPlay ? "Stop👻" : "Play👽" }}</v-btn
+          >
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -30,6 +38,7 @@ export default {
         "共振周波数",
       ],
       state_id: 0,
+      isPlay: false,
     };
   },
   mounted: function () {
@@ -42,13 +51,13 @@ export default {
 
       let waveform;
       let isUserStarted = false;
-      let isPlay = false;
+      this.isPlay = false;
 
       let wait_circle_x;
       let peak_history = {};
 
       // 解析ボタン
-      this.$refs.analysis_button.onclick = () => {
+      this.$refs.analysis_button.$el.onclick = () => {
         if (!isUserStarted) {
           p5.userStartAudio().then(() => {
             mic.start();
@@ -90,15 +99,15 @@ export default {
         );
       };
 
-      this.$refs.play_button.onclick = () => {
-        if (!isUserStarted || !isPlay) {
+      this.$refs.play_button.$el.onclick = () => {
+        if (!isUserStarted || !this.isPlay) {
           p5.userStartAudio().then(() => {
             osc.start();
             isUserStarted = true;
-            isPlay = true;
+            this.isPlay = true;
           });
-        } else if (isPlay) {
-          isPlay = false;
+        } else if (this.isPlay) {
+          this.isPlay = false;
           osc.stop();
         }
       };
