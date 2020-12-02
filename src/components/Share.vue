@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="white--text" @click="Tweet" color="blue">
+  <v-btn depressed class="white--text" @click="Tweet" color="blue">
     Tweet
     <v-icon color="white" small>fab fa-twitter</v-icon>
   </v-btn>

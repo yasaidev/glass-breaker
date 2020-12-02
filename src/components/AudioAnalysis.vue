@@ -2,16 +2,29 @@
   <div>
     <h1>{{ state_msg[state_id] }}</h1>
     <h2 v-if="state_id === 3">{{ Freq }} Hz</h2>
-    <div id="canvas" ref="p5canvas"></div>
+    <div id="canvas_parent">
+      <div id="canvas" ref="p5canvas"></div>
+    </div>
+
     <v-container>
       <v-row>
         <v-col cols="12">
-          <v-btn large ref="analysis_button">Analysis🔎</v-btn>
+          <v-btn
+            large
+            ref="analysis_button"
+            depressed
+            outlined
+            v-bind:loading="state_id === 1"
+          >
+            Analysis🔎
+          </v-btn>
         </v-col>
         <v-col cols="12">
           <v-btn
             color="amber"
             large
+            depressed
+            outlined
             ref="play_button"
             v-bind:disabled="state_id !== 3"
             >{{ isPlay ? "Stop👻" : "Play👽" }}</v-btn
@@ -60,6 +73,8 @@ export default {
 
       let wait_circle_x;
       let peak_history = {};
+
+      console.log(this.$refs.p5canvas);
 
       // 解析ボタン
       this.$refs.analysis_button.$el.onclick = () => {
@@ -303,5 +318,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#canvas_parent {
+  padding: 10px;
+}
 </style>
