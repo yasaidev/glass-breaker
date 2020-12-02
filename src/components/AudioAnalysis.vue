@@ -19,15 +19,20 @@
         </v-col>
       </v-row>
     </v-container>
+    <ShareButton :Freq="this.Freq"></ShareButton>
   </div>
 </template>
 
 <script>
 import P5 from "p5";
 import "../js/p5.sound";
+import ShareButton from "./Share.vue";
 
 export default {
   name: "AudioAnalysis",
+  components: {
+    ShareButton,
+  },
   data: function () {
     return {
       Freq: 0,
