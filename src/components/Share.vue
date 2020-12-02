@@ -18,17 +18,18 @@ export default {
       if (typeof this.Freq !== "undefined" && this.Freq !== 0) {
         location.href =
           "https://twitter.com/intent/tweet?text=" +
+          "私のグラスは" +
           this.Freq +
           "Hzで破壊できそう😎%0a" +
           "%20%23ガラスブレイカー" +
-          "&url" +
+          "&url=" +
           location.href;
       } else {
         location.href =
           "https://twitter.com/intent/tweet?text=" +
           "ガラス破壊してぇ🥺%0a" +
           "%20%23ガラスブレイカー" +
-          "&url" +
+          "&url=" +
           location.href;
       }
     },
