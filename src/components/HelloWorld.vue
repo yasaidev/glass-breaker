@@ -187,7 +187,6 @@ export default {
       function toggleMic(start_callback) {
         if (mic.enabled) {
           if (this.isGetting) {
-            // mic.stop();
             recorder.stop();
             this.isGetting = false;
             isRecorded = true;
