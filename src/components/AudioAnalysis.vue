@@ -74,8 +74,6 @@ export default {
       let wait_circle_x;
       let peak_history = {};
 
-      console.log(this.$refs.p5canvas);
-
       // 解析ボタン
       this.$refs.analysis_button.$el.onclick = () => {
         if (!isUserStarted) {
@@ -141,7 +139,6 @@ export default {
         p5.background("white");
 
         wait_circle_x = WaitCircleIndexInit();
-        console.log(wait_circle_x);
       };
 
       p5.draw = () => {
@@ -212,7 +209,6 @@ export default {
             this.Freq = Math.ceil(
               (p5.sampleRate() * top3_index[0]) / (fft_bin * 2)
             );
-            console.log(peak_history);
           }
         }
 
