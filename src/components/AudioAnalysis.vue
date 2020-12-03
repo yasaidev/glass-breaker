@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>{{ state_msg[state_id] }}</h1>
-    <h2 v-if="state_id === 3">{{ Freq }} Hz</h2>
+    <h2 v-if="state_id === 3">{{ tweaked_Freq }} Hz</h2>
     <div id="canvas_parent">
       <div id="canvas" ref="p5canvas"></div>
     </div>
 
     <v-container>
-      <v-row>
+      <v-row justify="center" align-content="center">
         <v-col cols="12">
           <v-btn
             large
@@ -30,9 +30,21 @@
             >{{ isPlay ? "Stop👻" : "Play👽" }}</v-btn
           >
         </v-col>
+        <v-col cols="10">
+          <v-slider
+            max="50"
+            min="-50"
+            v-model="slider_value"
+            v-bind:disabled="state_id !== 3"
+            prepend-icon="mdi-waveform"
+            append-icon="mdi-reload"
+            @click:append="ResetFreq"
+          >
+          </v-slider>
+        </v-col>
       </v-row>
     </v-container>
-    <ShareButton :Freq="this.Freq"></ShareButton>
+    <ShareButton :Freq="tweaked_Freq"></ShareButton>
   </div>
 </template>
 
@@ -49,6 +61,7 @@ export default {
   data: function () {
     return {
       Freq: 0,
+      tweaked_Freq: 0,
       state_msg: [
         "マイク接続待ち...",
         "測定まで...",
@@ -57,7 +70,13 @@ export default {
       ],
       state_id: 0,
       isPlay: false,
+      slider_value: 0,
     };
+  },
+  methods: {
+    ResetFreq: function () {
+      this.slider_value = 0;
+    },
   },
   mounted: function () {
     const audio_analysis_p5 = (_p5) => {
@@ -197,24 +216,30 @@ export default {
               peak_history[top3_index[0].toString()] += 1;
               if (peak_history[top3_index[0].toString()] > 10) {
                 this.state_id = 3;
-                this.Freq = Math.ceil(
-                  (p5.sampleRate() * top3_index[0]) / (fft_bin * 2)
-                );
+                this.Freq =
+                  Math.round(
+                    ((p5.sampleRate() * top3_index[0]) / (fft_bin * 2)) * 10
+                  ) / 10;
+                this.tweaked_Freq = this.Freq;
                 mic.stop();
                 fft.setInput(osc);
               }
             } else {
               peak_history[top3_index[0].toString()] = 1;
             }
-            this.Freq = Math.ceil(
-              (p5.sampleRate() * top3_index[0]) / (fft_bin * 2)
-            );
+            this.Freq =
+              Math.round(
+                ((p5.sampleRate() * top3_index[0]) / (fft_bin * 2)) * 10
+              ) / 10;
+            this.tweaked_Freq = this.Freq;
           }
         }
 
         // play mode
         if (this.state_id === 3) {
-          osc.freq(this.Freq);
+          this.tweaked_Freq =
+            Math.round((this.Freq + this.slider_value / 10) * 10) / 10;
+          osc.freq(this.tweaked_Freq);
           DrawWaveform();
         }
       };
