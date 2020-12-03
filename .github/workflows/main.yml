@@ -41,11 +41,11 @@ jobs:
     
     - id: get-comment-body
       run: |
-      body=$(cat deploy_log.txt)
-      body="${body//'%'/'%25'}"
-      body="${body//$'\n'/'%0A'}"
-      body="${body//$'\r'/'%0D'}" 
-      echo ::set-output name=body::$body
+        body=$(cat deploy_log.txt)
+        body="${body//'%'/'%25'}"
+        body="${body//$'\n'/'%0A'}"
+        body="${body//$'\r'/'%0D'}" 
+        echo ::set-output name=body::$body
     
     - name: Create commit comment
       uses: peter-evans/commit-comment@v1
