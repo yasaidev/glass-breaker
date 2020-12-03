@@ -42,9 +42,11 @@
           >
           </v-slider>
         </v-col>
+        <v-col cols="5">
+          <ShareButton :Freq="tweaked_Freq"></ShareButton>
+        </v-col>
       </v-row>
     </v-container>
-    <ShareButton :Freq="tweaked_Freq"></ShareButton>
   </div>
 </template>
 
