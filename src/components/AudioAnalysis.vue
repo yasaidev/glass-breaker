@@ -154,7 +154,7 @@ export default {
       p5.setup = () => {
         mic = new P5.AudioIn();
         fft = new P5.FFT(0.8, fft_bin);
-        osc = new P5.Oscillator("triangle");
+        osc = new P5.Oscillator("sine");
 
         p5.createCanvas(this.$refs.p5canvas.clientWidth, 300);
         p5.background("white");
