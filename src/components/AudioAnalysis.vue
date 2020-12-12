@@ -2,9 +2,8 @@
   <div>
     <h1>{{ state_msg[state_id] }}</h1>
     <h2 v-if="state_id === 3">{{ tweaked_Freq }} Hz</h2>
-    <div id="canvas_parent">
-      <div id="canvas" ref="p5canvas"></div>
-    </div>
+
+    <div id="canvas" ref="p5canvas"></div>
 
     <v-container>
       <v-row justify="center" align-content="center">
@@ -156,7 +155,10 @@ export default {
         fft = new P5.FFT(0.8, fft_bin);
         osc = new P5.Oscillator("sine");
 
-        p5.createCanvas(this.$refs.p5canvas.clientWidth, 300);
+        p5.createCanvas(
+          this.$refs.p5canvas.clientWidth,
+          this.$refs.p5canvas.clientHeight
+        );
         p5.background("white");
 
         wait_circle_x = WaitCircleIndexInit();
@@ -342,7 +344,9 @@ export default {
 </script>
 
 <style scoped>
-#canvas_parent {
-  padding: 10px;
+#canvas {
+  margin: 0px 10px;
+  height: 35vh;
+  max-height: 300px;
 }
 </style>
