@@ -63,12 +63,7 @@ export default {
     return {
       Freq: 0,
       tweaked_Freq: 0,
-      state_msg: [
-        "マイク接続待ち...",
-        "測定まで...",
-        "測定中...",
-        "共振周波数",
-      ],
+      state_msg: ["待機中...", "測定まで...", "測定中...", "共振周波数"],
       state_id: 0,
       isPlay: false,
       slider_value: 0,
