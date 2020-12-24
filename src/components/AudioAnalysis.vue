@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import P5 from "p5";
+import P5 from "p5/lib/p5";
 import "../js/p5.sound";
 import ShareButton from "./Share.vue";
 
