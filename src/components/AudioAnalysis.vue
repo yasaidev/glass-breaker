@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import P5 from "p5/lib/p5";
-import "../js/p5.sound";
+import P5 from "p5/lib/p5.min";
+import "../js/p5.sound.min";
 import ShareButton from "./Share.vue";
 
 export default {
