@@ -26,7 +26,7 @@ export default {
           "私のグラスは" +
           this.Freq +
           "Hzで破壊できそう😎%0a" +
-          "%20%23ガラスブレイカー" +
+          "%20%23爆音グラス破壊" +
           "&url=" +
           location.href;
       } else {
@@ -38,7 +38,7 @@ export default {
         location.href =
           "https://twitter.com/intent/tweet?text=" +
           "ガラス破壊してぇ🥺%0a" +
-          "%20%23ガラスブレイカー" +
+          "%20%23爆音グラス破壊" +
           "&url=" +
           location.href;
       }
