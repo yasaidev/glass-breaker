@@ -75,8 +75,6 @@ export default {
     },
   },
   mounted: function () {
-    console.log(process.env.VUE_APP_GA_TAG);
-    console.log(this);
     const audio_analysis_p5 = (_p5) => {
       const p5 = _p5;
 
