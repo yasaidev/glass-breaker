@@ -75,6 +75,8 @@ export default {
     },
   },
   mounted: function () {
+    console.log(process.env.VUE_APP_GA_TAG);
+    console.log(this);
     const audio_analysis_p5 = (_p5) => {
       const p5 = _p5;
 
@@ -91,6 +93,11 @@ export default {
 
       // 解析ボタン
       this.$refs.analysis_button.$el.onclick = () => {
+        this.$gtag.event("クリック計測", {
+          event_category: "アプリボタンクリック",
+          event_label: "Alaysis",
+          value: 1,
+        });
         if (!isUserStarted) {
           p5.userStartAudio().then(() => {
             mic.start();
@@ -133,6 +140,11 @@ export default {
       };
 
       this.$refs.play_button.$el.onclick = () => {
+        this.$gtag.event("クリック計測", {
+          event_category: "アプリボタンクリック",
+          event_label: "Play",
+          value: 1,
+        });
         if (!isUserStarted || !this.isPlay) {
           p5.userStartAudio().then(() => {
             osc.start();

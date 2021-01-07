@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import VueGtag from "vue-gtag"
 
 Vue.use(VueRouter)
 
@@ -30,5 +31,11 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+Vue.use(VueGtag, {
+  config: {
+    id: process.env.VUE_APP_GA_TAG,
+  }
+}, router);
 
 export default router
