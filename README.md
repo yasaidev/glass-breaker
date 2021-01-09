@@ -2,6 +2,8 @@
 
 <https://hakai.yasaidev.work/>
 
+![demo](https://user-images.githubusercontent.com/3955027/104024067-e4b03780-5205-11eb-89d2-7899b78626d0.gif)
+
 ## [これ](https://hakai.yasaidev.work/)は何？
 
 グラスを音で破壊する[サイト](https://hakai.yasaidev.work/)です，
