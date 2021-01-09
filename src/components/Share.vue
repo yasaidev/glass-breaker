@@ -16,7 +16,7 @@ export default {
   methods: {
     Tweet: function () {
       if (typeof this.Freq !== "undefined" && this.Freq !== 0) {
-        this.$gtag.event("クリック計測", {
+        this.$gtag.event("シェアボタン（計測結果）", {
           event_category: "SNSボタンクリック",
           event_label: "twitter(計測結果)",
           value: 1,
@@ -30,7 +30,7 @@ export default {
           "&url=" +
           location.href;
       } else {
-        this.$gtag.event("クリック計測", {
+        this.$gtag.event("シェアボタン（紹介）", {
           event_category: "SNSボタンクリック",
           event_label: "twitter(紹介)",
           value: 1,

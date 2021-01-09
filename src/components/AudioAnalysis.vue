@@ -91,7 +91,7 @@ export default {
 
       // 解析ボタン
       this.$refs.analysis_button.$el.onclick = () => {
-        this.$gtag.event("クリック計測", {
+        this.$gtag.event("計測ボタン", {
           event_category: "アプリボタンクリック",
           event_label: "Alaysis",
           value: 1,
@@ -138,7 +138,7 @@ export default {
       };
 
       this.$refs.play_button.$el.onclick = () => {
-        this.$gtag.event("クリック計測", {
+        this.$gtag.event("プレイボタン", {
           event_category: "アプリボタンクリック",
           event_label: "Play",
           value: 1,
