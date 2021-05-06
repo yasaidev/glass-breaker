@@ -1,17 +1,17 @@
 # 爆音グラス破壊サイト
 
-<https://hakai.yasaidev.work/>
+<https://hakai.yasai.dev/>
 
 ![demo](https://user-images.githubusercontent.com/3955027/104024067-e4b03780-5205-11eb-89d2-7899b78626d0.gif)
 
-## [これ](https://hakai.yasaidev.work/)は何？
+## [これ](https://hakai.yasai.dev/)は何？
 
-グラスを音で破壊する[サイト](https://hakai.yasaidev.work/)です，
+グラスを音で破壊する[サイト](https://hakai.yasai.dev/)です，
 
 具体的には，グラスの固有周波数を再生して激しく共振させることで破壊します．
 
 ## 使い方
-<https://hakai.yasaidev.work/usage>
+<https://hakai.yasai.dev/usage>
 
 ### 準備
 
