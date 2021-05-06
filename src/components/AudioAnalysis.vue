@@ -31,8 +31,8 @@
         </v-col>
         <v-col cols="10">
           <v-slider
-            max="50"
-            min="-50"
+            max="100"
+            min="-100"
             v-model="slider_value"
             v-bind:disabled="state_id !== 3"
             prepend-icon="mdi-waveform"
